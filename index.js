@@ -82,6 +82,8 @@ let unifiedServer = ((req, res) => {
         const chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notfound;
 
         let data = {
+            'headers': headers,
+            'queryParams': queryParams,
             'trimmedPath': trimmedPath,
             'queryStringObject': queryStringObject,
             'trimmedPath': trimmedPath,
@@ -114,5 +116,7 @@ let unifiedServer = ((req, res) => {
 //router
 const router = {
     'ping': handlers.ping,
-    'users': handlers.users
+    'users': handlers.users,
+    'tokens': handlers.tokens,
+    'checks': handlers.checks
 };
